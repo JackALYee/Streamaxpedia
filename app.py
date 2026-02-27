@@ -172,6 +172,105 @@ TERMINOLOGY_DB = [
             { "label": "Download Spec", "url": "https://drive.google.com/file/d/1AUd-_h-6YUheKkQy8IF" }
         ]
     },
+    {
+        "term": "B3",
+        "category": "ACCESSORIES",
+        "desc": "",
+        "files": [
+            { "label": "Download Spec", "url": "https://drive.google.com/uc?export=download&id=1cjRMppN_iA5yXs7MchiqqEfGlmkfbkKV" }
+        ]
+    },
+    {
+        "term": "C40W",
+        "category": "ACCESSORIES",
+        "desc": "",
+        "files": [
+            { "label": "Download Spec", "url": "https://drive.google.com/uc?export=download&id=1SCZ2osT57ZnpA4U-Z2-UF2Meomqkb136" }
+        ]
+    },
+    {
+        "term": "CA20S",
+        "category": "ACCESSORIES",
+        "desc": "",
+        "files": [
+            { "label": "Download Spec", "url": "https://drive.google.com/uc?export=download&id=1ihECy7LRDVwv3643UbkLasnqCUlFzpmz" }
+        ]
+    },
+    {
+        "term": "iButton",
+        "category": "ACCESSORIES",
+        "desc": "",
+        "files": [
+            { "label": "Download Spec", "url": "https://drive.google.com/uc?export=download&id=1RhPKqMjg8y6-LeKnoU5E5uBarvFoMn38" },
+            { "label": "Download User Manual", "url": "https://drive.google.com/uc?export=download&id=1IQIMxFOuGNhIoiO9adyZh-9kDCpdEA9F" }
+        ]
+    },
+    {
+        "term": "R-Watch",
+        "category": "ACCESSORIES",
+        "desc": "",
+        "files": [
+            { "label": "Download Spec", "url": "https://drive.google.com/uc?export=download&id=1cgcKy_NCwThDLncHRjGy8Zu_fq9DH6ry" }
+        ]
+    },
+    {
+        "term": "C53",
+        "category": "VISIBILITY",
+        "desc": "",
+        "files": [
+            { "label": "Download Spec", "url": "https://drive.google.com/uc?export=download&id=1KeDlNr-IheWJyPcI5tncvSkWn8o7u-SX" },
+            { "label": "Download User Manual", "url": "https://drive.google.com/uc?export=download&id=1kNo2s_pcRHyE3U3TFX7lccmQpEAgvqc3" }
+        ]
+    },
+    {
+        "term": "C46",
+        "category": "VISIBILITY",
+        "desc": "",
+        "files": [
+            { "label": "Download Spec", "url": "https://drive.google.com/uc?export=download&id=15HUOyruXT96bTI_SFVYPAwTKVd0Dddw1" },
+            { "label": "Download User Manual", "url": "https://drive.google.com/uc?export=download&id=1PaCk1L9Mg5KXwRndPlRpJxgZ5W6jHDr8" }
+        ]
+    },
+    {
+        "term": "DP12S",
+        "category": "VISIBILITY",
+        "desc": "",
+        "files": [
+            { "label": "Download Spec", "url": "https://drive.google.com/uc?export=download&id=1lWW4CsnNZzA-FZR7UuGPgziKgn4aqvl0" },
+            { "label": "Download User Manual", "url": "https://drive.google.com/uc?export=download&id=1DvymTFtzA0PEz78WvaOLwYKh-tDJIcR6" }
+        ]
+    },
+    {
+        "term": "C41W",
+        "category": "VISIBILITY",
+        "desc": "",
+        "files": [
+            { "label": "Download Spec", "url": "https://drive.google.com/uc?export=download&id=12KT8NuTSLZGq0HccrEtHV7EcsJenkKGc" }
+        ]
+    },
+    {
+        "term": "CA42 Kit 2.0",
+        "category": "VISIBILITY",
+        "desc": "",
+        "files": [
+            { "label": "Download Spec", "url": "https://drive.google.com/uc?export=download&id=1zVkFbVM8_XhF3UxmsHzJfqN7xICBj2-t" },
+            { "label": "Download User Manual", "url": "https://drive.google.com/uc?export=download&id=1LnTRKOsy2tbIWNZFfbFf4cjdqM6IzLlG" }
+        ]
+    },
+    {
+        "term": "Z5",
+        "category": "ASSET SECURITY",
+        "desc": "",
+        "files": [
+            { "label": "Download Spec", "url": "https://drive.google.com/uc?export=download&id=1OLy4_RLLiggAWwbCD26qBcrObf2BHvjA" },
+            { "label": "Download User Manual", "url": "https://drive.google.com/uc?export=download&id=1z2Dt-VTohjhRWh4QEfBkK_NlwKQ4SGJ-" }
+        ]
+    },
+    {
+        "term": "Sentinel",
+        "category": "ASSET SECURITY",
+        "desc": ""
+    },
     { 
         "term": "TF Card", 
         "category": "Hardware", 
