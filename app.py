@@ -444,9 +444,9 @@ html_content = """
         .flow-arrow small { font-size: 0.65rem; margin-top: 4px; }
 
         /* --- GRAPH MODAL --- */
-        .modal-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(5, 8, 16, 0.85); backdrop-filter: blur(8px); z-index: 1000; display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: var(--transition); }
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(5, 8, 16, 0.85); backdrop-filter: blur(8px); z-index: 1000; display: flex; justify-content: center; align-items: flex-start; padding-top: 80px; opacity: 0; visibility: hidden; transition: var(--transition); }
         .modal-overlay.active { opacity: 1; visibility: visible; }
-        .modal-box { background: var(--glass-bg); border: var(--glass-border); border-radius: var(--card-radius); width: 95vw; height: 90vh; position: relative; padding: 20px; display: flex; flex-direction: column; align-items: center; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        .modal-box { background: var(--glass-bg); border: var(--glass-border); border-radius: var(--card-radius); width: 950px; max-width: 95%; height: 600px; position: relative; padding: 20px; display: flex; flex-direction: column; align-items: center; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
         .close-modal { position: absolute; top: 20px; right: 20px; background: transparent; border: none; color: var(--text-grey); font-size: 1.5rem; cursor: pointer; z-index: 100; transition: var(--transition); }
         .close-modal:hover { color: var(--text-white); }
         
@@ -496,7 +496,7 @@ html_content = """
         
         .graph-lines { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; overflow: visible; }
         
-        #modalChildExplanation { position: absolute; bottom: 20px; left: 20px; width: 350px; z-index: 100; box-shadow: 0 10px 30px rgba(0,0,0,0.5); background: rgba(5, 8, 16, 0.95); border: 1px solid var(--secondary-blue); padding: 16px 20px; border-radius: 8px; display: none; animation: fadeUp 0.3s ease-out forwards; }
+        #modalChildExplanation { position: absolute; top: 20px; left: 20px; width: 320px; z-index: 100; box-shadow: 0 10px 30px rgba(0,0,0,0.5); background: rgba(5, 8, 16, 0.95); border: 1px solid var(--secondary-blue); border-top: 4px solid var(--primary-green); padding: 16px 20px; border-radius: 8px; display: none; animation: fadeUp 0.3s ease-out forwards; }
         #modalChildExplanation.active { display: block; }
         .see-details-btn { background: var(--secondary-blue); color: #fff; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; font-weight: 600; font-size: 0.85rem; margin-top: 15px; display: flex; align-items: center; gap: 8px; transition: var(--transition); }
         .see-details-btn:hover { background: var(--primary-green); color: var(--bg-deep); }
