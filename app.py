@@ -1,6 +1,8 @@
 import streamlit as st
 import streamlit.components.v1 as components
 import json
+import csv
+import os
 
 # --- PAGE CONFIGURATION ---
 st.set_page_config(
@@ -129,7 +131,7 @@ TERMINOLOGY_DB = [
     {
         "term": "DP7Q",
         "category": "VISIBILITY",
-        "desc": "Visibility display monitor.",
+        "desc": "",
         "files": [
             { "label": "Download Spec", "url": "https://drive.google.com/uc?export=download&id=T96bTI_SFVYPAwTKVd0Dddw1" },
             { "label": "Download User Manual", "url": "https://drive.google.com/uc?export=download&id=1PaCk1L9Mg5KXwRndPlRpJxgZ5W6jHDr8" }
@@ -138,7 +140,7 @@ TERMINOLOGY_DB = [
     {
         "term": "DP7Q-T",
         "category": "VISIBILITY",
-        "desc": "Visibility display monitor.",
+        "desc": "",
         "files": [
             { "label": "Download Spec", "url": "https://drive.google.com/uc?export=download&id=1DqoHoy7iEjxkXYGEGvBOUq3uQut2G6LT" },
             { "label": "Download User Manual", "url": "https://drive.google.com/uc?export=download&id=14G4hocFebDV14ltGeulSAFv8AzoVyJBC" }
@@ -147,7 +149,7 @@ TERMINOLOGY_DB = [
     {
         "term": "DP7Q-RT",
         "category": "VISIBILITY",
-        "desc": "Visibility display monitor.",
+        "desc": "",
         "files": [
             { "label": "Download Spec", "url": "https://drive.google.com/uc?export=download&id=1tjEZOUmVAJHkl7uPvwtwv68ZEPeng_cj" },
             { "label": "Download User Manual", "url": "https://drive.google.com/uc?export=download&id=1Wiz44D3G8VkarQU3b-6ivcoABimu_k4u" }
@@ -156,7 +158,7 @@ TERMINOLOGY_DB = [
     {
         "term": "DP7S",
         "category": "VISIBILITY",
-        "desc": "Visibility display monitor.",
+        "desc": "",
         "files": [
             { "label": "Download Spec", "url": "https://drive.google.com/uc?export=download&id=1rn0NpghwO0ls_diXBITzDLoRUh-YacSu" },
             { "label": "Download User Manual", "url": "https://drive.google.com/uc?export=download&id=1m9f5KCf4L8BGPIsE6VbzxEoBYdcJ8N59" }
@@ -165,7 +167,7 @@ TERMINOLOGY_DB = [
     {
         "term": "DP7S-T",
         "category": "VISIBILITY",
-        "desc": "Visibility display monitor.",
+        "desc": "",
         "files": [
             { "label": "Download Spec", "url": "https://drive.google.com/file/d/1AUd-_h-6YUheKkQy8IF" }
         ]
@@ -292,6 +294,45 @@ TERMINOLOGY_DB = [
     { "term": "Ryan He", "category": "TEAM", "desc": "堃哥，全国熬夜加班总冠军，货运产品线总监。<br><br>名言：“干就完了！”", "related": ["Jerry Li"], "exact": True },
     { "term": "Jack Yi", "category": "TEAM", "desc": "不正经程序员，理工科市场推广员，PPT做的贼烂销售员", "related": ["Jerry Li"], "exact": True }
 ]
+
+
+# --- DYNAMIC CSV INTEGRATION ---
+# Automatically parse the actual CSV to inject CA20S, AVM, and others natively!
+csv_file = "product dic.csv"
+if os.path.exists(csv_file):
+    with open(csv_file, mode="r", encoding="utf-8-sig") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            term = row.get("Keyword", "").strip()
+            if not term: continue
+            
+            category = row.get("classification", "").strip()
+            desc = row.get("Explanation", "").strip()
+            spec = row.get("download spec", "").strip()
+            manual = row.get("download user manual", "").strip()
+            relevance = row.get("relevance", "")
+            
+            files = []
+            if spec: files.append({"label": "Download Spec", "url": spec})
+            if manual: files.append({"label": "Download User Manual", "url": manual})
+            
+            related = [r.strip() for r in relevance.split(",") if r.strip()] if relevance else []
+
+            # Check if term exists to intelligently merge
+            existing = next((item for item in TERMINOLOGY_DB if item["term"].lower() == term.lower()), None)
+            
+            if existing:
+                if category: existing["category"] = category
+                if desc: existing["desc"] = desc
+                if files: existing["files"] = files
+                if related:
+                    existing["related"] = list(set(existing.get("related", []) + related))
+            else:
+                new_item = {"term": term, "category": category, "desc": desc}
+                if files: new_item["files"] = files
+                if related: new_item["related"] = related
+                TERMINOLOGY_DB.append(new_item)
+
 
 # Process Bidirectional Links Programmatically
 for item in TERMINOLOGY_DB:
