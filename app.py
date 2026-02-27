@@ -446,7 +446,28 @@ html_content = """
         /* --- GRAPH MODAL --- */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(5, 8, 16, 0.85); backdrop-filter: blur(8px); z-index: 1000; display: flex; justify-content: center; align-items: flex-start; padding-top: 80px; opacity: 0; visibility: hidden; transition: var(--transition); }
         .modal-overlay.active { opacity: 1; visibility: visible; }
-        .modal-box { background: var(--glass-bg); border: var(--glass-border); border-radius: var(--card-radius); width: 950px; max-width: 95%; height: 600px; position: relative; padding: 20px; display: flex; flex-direction: column; align-items: center; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        
+        /* Modal Window Design with Resizing Enabled */
+        .modal-box { 
+            background: var(--glass-bg); 
+            border: var(--glass-border); 
+            border-radius: var(--card-radius); 
+            width: 950px; 
+            max-width: 95vw; 
+            min-width: 400px; 
+            height: 600px; 
+            min-height: 400px; 
+            max-height: 90vh; 
+            position: relative; 
+            padding: 20px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            overflow: hidden; 
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5); 
+            resize: both; 
+        }
+        
         .close-modal { position: absolute; top: 20px; right: 20px; background: transparent; border: none; color: var(--text-grey); font-size: 1.5rem; cursor: pointer; z-index: 100; transition: var(--transition); }
         .close-modal:hover { color: var(--text-white); }
         
@@ -822,6 +843,14 @@ html_content = """
         window.onmousemove = (e) => { if(isGraphDragging) { if(Math.abs(e.clientX - graphStartX - graphTranslateX)>3 || Math.abs(e.clientY - graphStartY - graphTranslateY)>3) hasGraphDragged = true; graphTranslateX = e.clientX - graphStartX; graphTranslateY = e.clientY - graphStartY; ct.style.transform = `translate(${graphTranslateX}px, ${graphTranslateY}px)`; } };
         window.onmouseup = () => isGraphDragging = false;
         vp.onclick = (e) => { if(!hasGraphDragged && !e.target.closest('.node-related') && !document.getElementById('modalChildExplanation').contains(e.target)) document.getElementById('modalChildExplanation').classList.remove('active'); };
+
+        // Observe modal resize to redraw lines dynamically
+        new ResizeObserver(() => {
+            if (document.getElementById('relevanceModal').classList.contains('active')) {
+                drawLines();
+            }
+        }).observe(document.querySelector('.modal-box'));
+
     </script>
 </body>
 </html>
